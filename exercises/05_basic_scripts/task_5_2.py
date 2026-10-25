@@ -30,3 +30,38 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+netmask = input("Введите сеть: ")
+ip, mask = netmask.split("/")
+network_list = list(ip.split("."))
+mask = int(mask)
+oct1, oct2, oct3, oct4 = [
+    int(network_list[0]),
+    int(network_list[1]),
+    int(network_list[2]),
+    int(network_list[3]),
+]
+
+mask_bin = "1" * mask + "0" * (32 - mask)
+m1, m2, m3, m4 = [
+    int(mask_bin[0:8], 2),
+    int(mask_bin[8:16], 2),
+    int(mask_bin[16:24], 2),
+    int(mask_bin[24:32], 2),
+]
+
+output_network = """
+Network:
+{0:<10}{1:<10}{2:<10}{3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+"""
+
+output_mask = """
+Mask:
+/{mask}
+{0:<10}{1:<10}{2:<10}{3:<10}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}
+"""
+
+print(output_network.format(oct1, oct2, oct3, oct4))
+print(output_mask.format(m1, m2, m3, m4, mask=mask))
