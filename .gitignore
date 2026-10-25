@@ -34,5 +34,9 @@ Thumbs.db
 # VSCode files
 .vscode/
 
+# Хз чё-то, какие-то дирректорие,
+build/
+pyneng.egg-info/
+
 # Virual environments
 venv/
