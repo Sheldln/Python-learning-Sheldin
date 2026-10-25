@@ -28,3 +28,22 @@ Next-Hop              {}
 Last update           {}
 Outbound Interface    {}
 """
+
+output = "\n{:<20} {:<15}" * 5
+
+route = ospf_route.replace(",", "").replace("[", "").replace("]", "").split()
+
+print(
+    output.format(
+        "Prefix",
+        route[0],
+        "AD/Metric",
+        route[1],
+        "Next-Hop",
+        route[3],
+        "Last update",
+        route[4],
+        "Outbound Interface",
+        route[5],
+    )
+)

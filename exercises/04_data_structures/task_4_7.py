@@ -16,3 +16,9 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+
+new_mac = int("".join(mac.split(":")), 16)
+
+result = bin(new_mac)
+
+print(result[2::])
